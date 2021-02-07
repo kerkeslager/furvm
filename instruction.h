@@ -6,14 +6,14 @@ void instruction_print(Stack* stack, Object argument) {
 
   Object obj = Stack_pop(stack);
 
-  assert(obj.type == STRING);
+  assert(obj.type == ROPE);
 
-  String_print(obj.value.string);
-  String_destruct(obj.value.string);
+  Rope_print(obj.value.string);
+  Rope_destruct(obj.value.string);
 }
 
 void instruction_push_string(Stack* stack, Object argument) {
-  assert(argument.type == STRING);
+  assert(argument.type == ROPE);
   Stack_push(stack, argument);
 }
 

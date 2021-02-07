@@ -5,12 +5,14 @@ MAIN_TEMPLATE = '''
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "../stack.h"
 #include "../instruction.h"
 
 int main(int argc, char** argv) {
   Stack* stack = Stack_construct();
+
 $instructions
 
   Stack_destruct(stack);
@@ -57,7 +59,7 @@ def assemble_to_c(source):
             return 'Object_create(VOID, (Value)0)'
 
         if isinstance(argument, str):
-            return 'Object_create_from_string(String_construct_from_c_string({}))'.format(
+            return 'Object_createFromCString({})'.format(
                 argument,
             )
 

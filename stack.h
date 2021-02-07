@@ -19,7 +19,7 @@ void StackNode_initialize(StackNode* self, Object value, StackNode* next) {
 }
 
 StackNode* StackNode_construct(Object value, StackNode* next) {
-  StackNode* result = malloc(sizeof(StackNode));
+  StackNode* result = calloc(1, sizeof(StackNode));
   StackNode_initialize(result, value, next);
   return result;
 }
@@ -42,7 +42,7 @@ void Stack_initialize(Stack* self) {
 }
 
 Stack* Stack_construct() {
-  Stack* result = malloc(sizeof(Stack));
+  Stack* result = calloc(1, sizeof(Stack));
   Stack_initialize(result);
   return result;
 }
